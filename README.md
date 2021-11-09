@@ -95,4 +95,4 @@ C:\dff>dff scan test\a test\b -f del -o duplicates.bat
 @rem del /F "C:\Users\sasch\Documents\Programme\Home\dff\test\a\file1.txt"
 ```
 
-**Note that all three files are reported as duplicates!!! You have to decide which file to keep (leafe the @rem). The program will group same files next to each other. The next group is separated by a blank line.**
+**Note that all three files are reported as duplicates!!! You have to decide which file to keep (leave the @rem). The program will group same files next to each other. The next group is separated by a blank line.**
