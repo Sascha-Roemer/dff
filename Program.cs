@@ -123,10 +123,10 @@ Known Issues:
         private static void Scan(IEnumerable<string> paths, string outfile, int minSize, string outputFormat)
         {
             Console.WriteLine($"Scanning files. {Time}");
-            Console.WriteLine($"Writing duplicates to '{outfile}'");
             var byteLookup = new ConcurrentDictionary<string, List<string>>();
             
             using var stream = new FileStreamWriter(outfile, SeekOrigin.End);
+            Console.WriteLine($"Writing duplicates to '{stream.FilePath}'");
 
             var sameSize = GetSameFilesBySize(paths, minSize).ToArray();
             var time = System.Diagnostics.Stopwatch.StartNew();
@@ -167,10 +167,11 @@ Known Issues:
         private static void Compare(IEnumerable<string> paths, string outfile, int minSize, string pathHashFile, string outputFormat)
         {
             Console.WriteLine($"Comparing files. {Time}");
-            Console.WriteLine($"Writing duplicates to '{outfile}'");
             var duplicates = new List<string>();
             
             using var stream = new FileStreamWriter(outfile, SeekOrigin.End);
+            Console.WriteLine($"Writing duplicates to '{stream.FilePath}'");
+
             using var hash = new Hash();
             hash.ReadHashfile(pathHashFile);
             

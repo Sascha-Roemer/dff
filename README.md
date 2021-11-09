@@ -44,3 +44,55 @@ Known Issues:
   For example if you hash 'D:\a.txt' and 'D:\a - copy.txt' (both same hash) and then call compare on D:\ it will 
   report 'a.txt' and 'a - copy.txt' as duplicates.
 ```
+
+## Example
+
+1. List files in test folder:
+
+```
+C:\>cd dff
+
+C:\dff>dir /S /B test
+
+C:\dff\test\a
+C:\dff\test\b
+C:\dff\test\a\file1 copy.txt
+C:\dff\test\a\file1.txt
+C:\dff\test\a\file2.txt
+C:\dff\test\b\file1.txt
+```
+
+2. Create a hash file of a:
+
+```
+C:\dff>dff hash test\a -i a-hash.txt
+
+826E8142E6BAABE8AF779F5F490CF5F5 C:\dff\test\a\file1 copy.txt
+1C1C96FD2CF8330DB0BFA936CE82F3B9 C:\dff\test\a\file2.txt
+826E8142E6BAABE8AF779F5F490CF5F5 C:\dff\test\a\file1.txt
+```
+
+3. Compare hashes of a with b:
+
+```
+C:\dff>dff compare test\b -i a-hash.txt -f del -o duplicates.bat
+
+@rem del /F "C:\Users\sasch\Documents\Programme\Home\dff\test\b\file1.txt"
+```
+
+4. Open duplicates.bat in your favorite editor and remove @rem for the file(s) you would like to delte
+
+5. Run duplicates.bat
+
+
+All of the above in one `scan`:
+
+```
+C:\dff>dff scan test\a test\b -f del -o duplicates.bat
+
+@rem del /F "C:\Users\sasch\Documents\Programme\Home\dff\test\a\file1 copy.txt"
+@rem del /F "C:\Users\sasch\Documents\Programme\Home\dff\test\b\file1.txt"
+@rem del /F "C:\Users\sasch\Documents\Programme\Home\dff\test\a\file1.txt"
+```
+
+**Note that all three files are reported as duplicates!!! You have to decide which file to keep (leafe the @rem). The program will group same files next to each other. The next group is separated by a blank line.**

@@ -12,6 +12,8 @@ namespace dff
         private SeekOrigin _origin;
         private static object _initLock = new object();
 
+        public string FilePath => _path;
+
         public FileStreamWriter(string path, SeekOrigin origin)
         {
             _path = path;
@@ -50,8 +52,8 @@ namespace dff
 
             if (disposing)
             {
-                _file?.Dispose();
                 _stream?.Dispose();
+                _file?.Dispose();
             }
 
             isDisposed = true;

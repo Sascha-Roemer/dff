@@ -10,7 +10,7 @@
             "request": "launch",
             "preLaunchTask": "build",
             "program": "${workspaceFolder}/dff/bin/Debug/netcoreapp3.1/dff.dll",
-            "args": ["scan", "-p", "C:\\Users\\sasch\\Downloads\\", "-m", "1", "-f", "del", "-o", "null"],
+            "args": [],
             "cwd": "${workspaceFolder}/dff",
             "console": "internalConsole",
             "stopAtEntry": false

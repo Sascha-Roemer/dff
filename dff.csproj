@@ -6,14 +6,4 @@
     <LangVersion>9.0</LangVersion>
   </PropertyGroup>
 
-  <Target Name="CopyDLLs" AfterTargets="Build">
-    <Message Text="Executing CopyDLLs task" Importance="High" />
-
-    <Copy
-      SourceFiles="$(TargetDir)$(ProjectName).dll;$(TargetDir)$(ProjectName).exe;$(TargetDir)$(ProjectName).runtimeconfig.json"
-      DestinationFolder="$(ProjectDi)..\..\" />
-
-    <Message Text="Copied build files" Importance="High" />
-  </Target>
-
 </Project>
