@@ -9,9 +9,9 @@
             "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "build",
-            "program": "${workspaceFolder}/dff/bin/Debug/netcoreapp3.1/dff.dll",
-            "args": [],
-            "cwd": "${workspaceFolder}/dff",
+            "program": "${workspaceFolder}/bin/Debug/netcoreapp3.1/dff.dll",
+            "args": ["diag", "C:\\Users\\sasch\\Documents\\Programme\\"],
+            "cwd": "${workspaceFolder}",
             "console": "internalConsole",
             "stopAtEntry": false
         },
