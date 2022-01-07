@@ -70,8 +70,6 @@ Options:
                             del   A batch file containing 'del' statements.
 
 Known Issues:
-A file stream is not properly closed and throws an exception before the program quits.
-
 File access issues like denied access or readonly are not handles. Files that cannot be accessed are ignored 
 silently.
 
